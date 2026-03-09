@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="authScreen" class="screen active">
+        <div class="card">
+            <div class="logo">
+                <div class="icon">🎯</div>
+                <h1>QuizMaster Pro</h1>
+            </div>
+            <form id="authForm">
+                <div class="input-field">
+                    <input type="text" id="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit" id="loginBtn">Login</button>
+            </form>
+            <p class="toggle" id="toggleLink">Don't have account? <span>Sign Up</span></p>
+        </div>
+    </div>
+
+    <div id="dashboardScreen" class="screen">
+        <div class="card dashboard">
+            <div class="topbar">
+                <h2 id="welcomeUser">Welcome!</h2>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+            <button class="btn-primary" onclick="showSocial()">🌐 Social</button>
+            <div class="subjects" id="subjects"></div>
+        </div>
+    </div>
+    <div id="socialScreen" class="screen">
+  <div class="card dashboard social">
+    <div class="topbar">
+      <button class="btn-back" onclick="showDashboard()">Back</button>
+      <h2>Social Dashboard</h2>
+      <button class="btn-primary" onclick="addFriend()">+ Connect</button>
+    </div>
+    <div class="social-grid" id="friendsList">
+      <!-- Dynamic friends/achievements -->
+    </div>
+  </div>
+</div>
+
+
+    <div id="modulesScreen" class="screen">
+        <div class="card">
+            <div class="topbar">
+                <button class="btn-back" onclick="showDashboard()">← Back</button>
+                <h2 id="moduleTitle"></h2>
+            </div>
+            <div class="modules" id="modules"></div>
+        </div>
+    </div>
+
+    <div id="quizScreen" class="screen">
+        <div class="card quiz">
+            <div class="quiz-header">
+                <div>
+                    <h3 id="quizTitle"></h3>
+                    <div id="timer" class="timer">08</div>
+                </div>
+                <div class="progress">
+                    <div id="progressBar"></div>
+                </div>
+            </div>
+            <div class="question" id="question"></div>
+            <div class="options" id="options"></div>
+        </div>
+    </div>
+
+    <div id="resultScreen" class="screen">
+        <div class="card result">
+            <div class="grade" id="grade">A</div>
+            <h2>Quiz Completed!</h2>
+            <div class="stats">
+                <div class="stat">
+                    <span>User:</span>
+                    <strong id="resultUser">-</strong>
+                </div>
+                <div class="stat">
+                    <span>Subject:</span>
+                    <strong id="resultSubject">-</strong>
+                </div>
+                <div class="stat">
+                    <span>Module:</span>
+                    <strong id="resultModule">-</strong>
+                </div>
+                <div class="stat">
+                    <span>Score:</span>
+                    <strong id="resultScore">-</strong>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="btn-primary" onclick="generateCertificate()">🎓 Certificate</button>
+                <button class="btn-secondary" onclick="showDashboard()">📚 New Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
